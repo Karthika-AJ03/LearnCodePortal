@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz - LearnCode Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>{{ topic_name }} Quiz</h1>
+
+  <form action="/result" method="POST">
+    <input type="hidden" name="topic" value="{{ topic_name }}">
+
+    {% for q in quiz %}
+      <div class="content">
+        <p><strong>Q{{ loop.index }}. {{ q.question }}</strong></p>
+        {% for option in q.options %}
+          <label>
+            <input type="radio" name="q{{ loop.index }}" value="{{ option }}" required>
+            {{ option }}
+          </label><br>
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+    <button type="submit">Submit Quiz</button>
+  </form>
+
+  <a href="/">← Back to Home</a>
+</body>
+</html>

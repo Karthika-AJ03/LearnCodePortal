@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ topic_name }} - LearnCode Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>{{ topic_name }}</h1>
+  <p>Welcome to the {{ topic_name }} tutorial!</p>
+
+  <div class="content">
+    {% if topic_name == "Python Basics" %}
+      <p>Python is an easy-to-learn programming language. It’s great for beginners!</p>
+      <ul>
+        <li>Variables and Data Types</li>
+        <li>Loops and Conditions</li>
+        <li>Functions and Modules</li>
+      </ul>
+    {% elif topic_name == "HTML Fundamentals" %}
+      <p>HTML is the foundation of every website!</p>
+      <ul>
+        <li>Tags and Elements</li>
+        <li>Headings, Paragraphs, and Links</li>
+        <li>Images and Lists</li>
+      </ul>
+    {% elif topic_name == "CSS Essentials" %}
+      <p>CSS styles your webpages beautifully.</p>
+      <ul>
+        <li>Selectors and Properties</li>
+        <li>Colors, Fonts, and Layouts</li>
+        <li>Responsive Design</li>
+      </ul>
+    {% endif %}
+  </div>
+
+  <a href="/">← Back to Home</a>
+</body>
+</html>
+<form action="/quiz" method="POST">
+  <input type="hidden" name="topic" value="{{ topic_name }}">
+  <button type="submit">Take Quiz</button>
+</form>

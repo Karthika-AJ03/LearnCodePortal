@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LearnCode Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Welcome to LearnCode Portal</h1>
+  <p>Choose a topic to start learning interactively:</p>
+
+  <form action="/topic" method="POST">
+    <button type="submit" name="topic" value="Python Basics">Python Basics</button>
+    <button type="submit" name="topic" value="HTML Fundamentals">HTML Fundamentals</button>
+    <button type="submit" name="topic" value="CSS Essentials">CSS Essentials</button>
+  </form>
+</body>
+</html>
